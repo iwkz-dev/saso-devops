@@ -11,6 +11,7 @@ services:
       - db
     ports:
       - "3000:3000"
+      
   db:
     container_name: mongo
     image: mongo:4.2.0-bionic
@@ -20,6 +21,13 @@ services:
       - saso_net
     ports:
       - "27017:27017"
+
+  watchtower:
+    image: containrrr/watchtower
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - $HOME/.docker/config.json:/config.json
+    command: --interval 30
 networks:
   saso_net:
     driver: bridge
