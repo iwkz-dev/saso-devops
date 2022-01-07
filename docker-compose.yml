@@ -17,6 +17,8 @@ services:
     image: mongo:4.2.0-bionic
     volumes:
       - /data/db:/data/db
+    env_file:
+      - .env.db
     networks:
       - saso_net
     ports:
