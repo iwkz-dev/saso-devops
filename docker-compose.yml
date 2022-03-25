@@ -21,7 +21,17 @@ services:
       - api
     ports:
       - "3001:3001"
-      
+
+  fe-client:
+    container_name: saso-fe-client
+    image: index.docker.io/iwkz/saso-fe-client:latest
+    networks:
+      - saso_net
+    depends_on:
+      - api
+    ports:
+      - "3002:3002"
+
   db:
     container_name: mongo
     image: mongo:4.2.0-bionic
