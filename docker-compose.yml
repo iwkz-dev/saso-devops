@@ -49,7 +49,7 @@ services:
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
       - $HOME/.docker/config.json:/config.json
-    command: --interval 30
+    command: --interval 30 --cleanup
 networks:
   saso_net:
     driver: bridge
